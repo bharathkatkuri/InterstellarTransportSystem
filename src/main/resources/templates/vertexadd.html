@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Interstellar Transport System</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+
+   
+    <div>
+    
+     
+      <form class="pure-form pure-form-stacked" th:object="${vertex}" th:action="@{/vertex}" method="post">
+    <fieldset>
+        <legend>Add Planet</legend>
+
+        <label for="id">Id: </label>
+        <input id="id" type="text" placeholder="Id" th:field="*{vertexId}" />
+       
+        <label for="name">Name: </label>
+        <input id="name" type="text" placeholder="Name" th:field="*{name}" />
+        
+
+        <button type="submit" class="pure-button pure-button-primary">Submit</button>
+    </fieldset>
+</form>
+
+
+        
+    </div>
+    
+    
+</div>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Interstellar Transport System</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+
+
+<div> 
+    <h3>Add Traffic</h3>
+    <form class="pure-form pure-form-stacked" th:action="@{/traffic}" method="post">
+      <input type="hidden" th:field="*{traffic.routeId}"/>
+    <fieldset>
+        <label for="source">Source:</label>
+        <select id="source" th:field="*{trafficModel.sourceVertex}"  >
+           <option th:each="v : ${trafficList}"
+                            th:value="${v.vertexId}"
+                            th:text="${v.name}+' ('+${v.vertexId}+')'">
+                    </option>
+        </select>
+        
+        <label for="dest">Destination:</label>
+        <select id="dest" th:field="*{trafficModel.destinationVertex}" >
+             <option th:each="v : ${trafficList}"
+                            th:value="${v.vertexId}"
+                            th:text="${v.name}+' ('+${v.vertexId}+')'">
+                    </option>
+        </select>
+        
+         <label for="dist">Distance(Light Years): </label>
+        <input id="dist" type="text" placeholder="Distance"  th:field="*{traffic.delay}" />
+        
+        
+
+      
+
+        <button type="submit" class="pure-button pure-button-primary">Submit</button>
+    </fieldset>
+</form>
+</div>
+   
+</div>
+
+</body>
+</html>
